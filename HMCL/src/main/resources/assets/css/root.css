@@ -1,0 +1,1436 @@
+/**
+ * Hello Minecraft! Launcher
+ * Copyright (C) 2020  huangyuhui <huanghongxun2008@126.com> and contributors
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+.root {
+}
+
+.svg {
+    -fx-fill: black;
+}
+
+.scroll-bar .thumb {
+    -fx-fill: -theme-thumb;
+    -fx-arc-width: 0;
+    -fx-arc-height: 0;
+}
+
+.disabled Label {
+    -fx-text-fill: rgba(0, 0, 0, 0.5);
+}
+
+.title-label {
+    -fx-font-size: 16.0px;
+    -fx-padding: 14.0px;
+    -fx-text-fill: rgba(0.0, 0.0, 0.0, 0.87);
+}
+
+.subtitle-label {
+    -fx-text-fill: rgba(0, 0, 0, 0.5);
+}
+
+.hint {
+    -fx-background-radius: 5;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-padding: 6;
+}
+
+/*
+  Colors are picked from bootstrap
+
+  https://getbootstrap.com/docs/4.1/components/alerts/
+ */
+
+.hint.info {
+    -fx-background-color: #cce5ff;
+    -fx-border-color: #b8daff;
+}
+
+.hint.info Text, .hint.info .svg {
+    -fx-fill: #004085;
+}
+
+.hint.success {
+    -fx-background-color: #d4edda;
+    -fx-border-color: #c3e6cb;
+}
+
+.hint.success Text, .hint.success .svg {
+    -fx-fill: #155724;
+}
+
+.hint.error {
+    -fx-background-color: #f8d7da;
+    -fx-border-color: #f5c6cb;
+}
+
+.hint.error Text, .hint.error .svg {
+    -fx-fill: #721c24;
+}
+
+.hint.warning {
+    -fx-background-color: #fff3cd;
+    -fx-border-color: #ffeeba;
+}
+
+.hint.warning Text, .hint.warning .svg {
+    -fx-fill: #856404;
+}
+
+.skin-pane .jfx-text-field {
+    -fx-pref-width: 200;
+}
+
+.bold {
+    -fx-font-weight: bold;
+}
+
+.memory-label {
+}
+
+.memory-used {
+    -fx-background-color: -fx-base-darker-color;
+}
+
+.memory-allocate {
+    -fx-background-color: derive(-fx-base-color, 100%);
+}
+
+.memory-total {
+    -fx-background-color: -fx-base-rippler-color;
+}
+
+.update-label {
+    -fx-text-fill: red;
+}
+
+.radio-button-title-label {
+    -fx-font-size: 16px;
+    -fx-padding: 14.0 0.0 -20.0 0.0;
+    -fx-text-fill: rgba(0.0, 0.0, 0.0, 0.87);
+}
+
+.announcement {
+    -fx-padding: 16;
+}
+
+.announcement .title {
+    -fx-font-size: 14px;
+    -fx-font-weight: BOLD;
+}
+
+.announcement JFXHyperlink, .announcement Text {
+    -fx-font-size: 13px;
+}
+
+.rippler-container {
+    -jfx-rippler-fill: #a2a2a2;
+}
+
+.rippler-container:selected .label {
+    -fx-text-fill: -fx-base-text-fill;
+}
+
+.advanced-list-item > .rippler-container > .container {
+    -fx-padding: 10 16 10 16;
+    -fx-background-color: null;
+}
+
+.advanced-list-item > .rippler-container > .container > .two-line-list-item {
+    -fx-alignment: center-left;
+    -fx-padding: 0 0 0 10;
+}
+
+.advanced-list-item > .rippler-container > .container > .two-line-list-item > .first-line > .title {
+    -fx-font-size: 13;
+    -fx-text-alignment: justify;
+}
+
+.advanced-list-item > .rippler-container > .container > .two-line-list-item > HBox > .subtitle {
+    -fx-font-size: 10;
+    -fx-text-alignment: justify;
+}
+
+.advanced-list-item:selected > .rippler-container > .container {
+    -fx-background-color: -fx-base-rippler-color;
+}
+
+.advanced-list-item:selected > .rippler-container > .container > .two-line-list-item > .first-line > .title {
+    -fx-text-fill: -fx-base-color;
+    -fx-font-weight: bold;
+}
+
+.advanced-list-item:selected .svg {
+    -fx-fill: -fx-base-color;
+}
+
+.navigation-drawer-item > .rippler-container > .container > VBox {
+    -fx-padding: 0 0 0 0;
+}
+
+.profile-list-item > .rippler-container > BorderPane > .two-line-list-item > .first-line > .title {
+    -fx-font-size: 13;
+}
+
+.profile-list-item > .rippler-container > BorderPane > .two-line-list-item > HBox > .subtitle {
+    -fx-font-size: 10;
+}
+
+.profile-list-item > .rippler-container > BorderPane {
+    -fx-padding: 8 0 8 16;
+}
+
+.profile-list-item:selected > .rippler-container > BorderPane {
+    -fx-background-color: -fx-base-rippler-color;
+}
+
+.profile-list-item:selected > .rippler-container > BorderPane > .two-line-list-item > .first-line > .title {
+    -fx-text-fill: -fx-base-color;
+    -fx-font-weight: bold;
+}
+
+.profile-list-item:selected .svg {
+    -fx-fill: -fx-base-color;
+}
+
+.notice-pane > .label {
+    -fx-text-fill: #0079FF;
+    -fx-font-size: 20;
+    -fx-wrap-text: true;
+    -fx-text-alignment: CENTER;
+}
+
+.class-title {
+    -fx-font-size: 12px;
+    -fx-padding: 16 16 8 16;
+}
+
+.advanced-list-box-item {
+}
+
+.advanced-list-box-content {
+    -fx-padding: 12 0 0 0;
+    -fx-spacing: 0;
+}
+
+.iconed-item {
+    -jfx-rippler-fill: -fx-base-color;
+}
+
+.iconed-item .iconed-item-container {
+    -fx-padding: 10 16 10 16;
+    -fx-spacing: 10;
+    -fx-font-size: 14;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.iconed-menu-item {
+    -jfx-rippler-fill: -fx-base-color;
+}
+
+.iconed-menu-item .iconed-item-container {
+    -fx-padding: 8 16 8 16;
+    -fx-spacing: 10;
+    -fx-font-size: 12;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.menu-container {
+    -fx-padding: 8 16 8 16;
+}
+
+.popup-menu .scroll-bar .thumb {
+    -fx-fill: rgba(0, 0, 0, 0.5);
+}
+
+.popup-menu-content {
+    -fx-padding: 4 0 4 0;
+}
+
+.two-line-list-item > .first-line > .title {
+	-fx-text-fill: #292929;
+	-fx-font-size: 15px;
+    -fx-padding: 0 8 0 0;
+}
+
+.two-line-list-item > HBox > .subtitle {
+	-fx-text-fill: rgba(0, 0, 0, 0.5);
+    -fx-font-weight: normal;
+    -fx-font-size: 12px;
+}
+
+.two-line-list-item > .first-line > .tag {
+    -fx-text-fill: -fx-base-color;
+    -fx-background-color: -fx-base-rippler-color;
+    -fx-padding: 2;
+    -fx-font-weight: normal;
+    -fx-font-size: 12px;
+}
+
+.two-line-item-second-large {
+
+}
+
+.two-line-item-second-large > .first-line > .title, .two-line-item-second-large-title {
+    -fx-text-fill: rgba(0, 0, 0, 0.5);
+    -fx-font-weight: normal;
+    -fx-font-size: 12px;
+}
+
+.two-line-item-second-large > HBox > .subtitle {
+    -fx-text-fill: #292929;
+    -fx-font-size: 15px;
+}
+
+.wrap-text > HBox > .subtitle {
+    -fx-wrap-text: true;
+}
+
+.bubble {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-background-radius: 2px;
+    -fx-text-fill: white;
+}
+
+.bubble > HBox > .two-line-list-item > .first-line > .title,
+.bubble > HBox > .two-line-list-item > HBox > .subtitle {
+	-fx-text-fill: white;
+}
+
+.sponsor-pane {
+    -fx-cursor: hand;
+}
+
+.installer-item {
+    -fx-padding: 8px;
+}
+
+.installer-item:list-item {
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1 0;
+    -fx-alignment: center-left;
+}
+
+.installer-item:list-item > .installer-item-name {
+    -fx-pref-width: 80px;
+}
+
+.installer-item:list-item > .installer-item-status {
+    -fx-max-width: infinity;
+}
+
+.installer-item:card {
+    -fx-background-color: white;
+    -fx-background-radius: 4;
+    -fx-alignment: center;
+    -fx-pref-width: 180px;
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.26), 10, 0.12, -1, 2);
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Main Page                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+.launch-pane > .jfx-button {
+    -fx-background-color: -fx-base-color;
+    -fx-cursor: hand;
+}
+
+.launch-pane > .jfx-button > StackPane > .jfx-rippler {
+    -jfx-rippler-fill: white;
+    -jfx-mask-type: CIRCLE;
+    -fx-padding: 0.0;
+}
+
+.launch-pane > .jfx-button, .jfx-button * {
+    -fx-text-fill: -fx-base-text-fill;
+    -fx-font-size: 14px;
+}
+
+.launch-pane > Rectangle {
+    -fx-fill: -fx-base-darker-color;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Tooltip                                                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+.tooltip {
+    -fx-text-fill: WHITE;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * JFX Tab Pane                                                                *
+ *                                                                             *
+ ******************************************************************************/
+
+.tab-header-background {
+    -fx-background-color: -fx-base-check-color;
+}
+
+.tab-selected-line {
+    -fx-background-color: derive(-fx-base-color, -30%);
+}
+
+.tab-rippler {
+    -jfx-rippler-fill: -fx-base-check-color;
+}
+
+.jfx-tab-pane .jfx-rippler {
+    -jfx-rippler-fill: white;
+}
+
+.tab-label {
+    -fx-font-size: 16;
+}
+
+.tab-label {
+    -fx-padding: 10 17 10 17;
+}
+
+.add-account-tab-header .tab-label {
+    -fx-font-size: 12;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * JFX Dialog Layout                                                           *
+ *                                                                             *
+ ******************************************************************************/
+
+.dialog-trigger {
+    -fx-background-color: WHITE;
+    -jfx-button-type: RAISED;
+    -fx-font-size: 14.0px;
+}
+
+.jfx-dialog-layout {
+    -fx-padding: 24.0px 24.0px 16.0px 24.0px;
+    -fx-text-fill: rgba(0.0, 0.0, 0.0, 0.87);
+}
+
+.jfx-layout-heading {
+    -fx-font-size: 20.0px;
+    -fx-font-family: -fx-base-font-family;
+    -fx-alignment: center-left;
+    -fx-padding: 5.0 0.0 5.0 0.0;
+}
+
+.jfx-layout-body {
+    -fx-pref-width: 400px;
+    -fx-wrap-text: true;
+}
+
+.jfx-layout-actions {
+    -fx-pref-width: 400;
+    -fx-padding: 10.0px 0.0 0.0 0.0;
+    -fx-alignment: center-right;
+}
+
+.dialog-error {
+    -fx-text-fill: #d32f2f;
+    -fx-font-family: -fx-base-font-family;
+    -fx-padding: 0.7em 0.8em;
+}
+
+.dialog-accept {
+    -fx-text-fill: #03A9F4;
+    -fx-font-family: -fx-base-font-family;
+    -fx-padding: 0.7em 0.8em;
+}
+
+.dialog-cancel {
+    -fx-font-family: -fx-base-font-family;
+    -fx-padding: 0.7em 0.8em;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * JFX Pop Up                                                                  *
+ *                                                                             *
+ ******************************************************************************/
+
+.jfx-popup-overlay-pane {
+    -fx-background-color: transparent;
+}
+
+.jfx-popup-container {
+    -fx-background-color: WHITE;
+    -fx-background-radius: 4;
+}
+
+.popup-list-view {
+    -fx-pref-width: 150.0px;
+}
+
+.jfx-snackbar-content {
+    -fx-background-color: #323232;
+}
+
+.jfx-snackbar-toast {
+    -fx-text-fill: WHITE;
+}
+
+.jfx-snackbar-action {
+    -fx-text-fill: #ff4081;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * JFX Icons                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+.icon {
+    -fx-fill: #FE774D;
+    -fx-padding: 10.0;
+    -fx-cursor: hand;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * JFX Tool Bar                                                                *
+ *                                                                             *
+ ******************************************************************************/
+
+.jfx-tool-bar {
+    -fx-font-size: 13.0;
+    -fx-pref-width: 100.0%;
+    -fx-min-height: 40px;
+    -fx-max-height: 40px;
+    -fx-pref-height: 40px;
+}
+
+.jfx-tool-bar .jfx-decorator-title {
+    -fx-font-weight: BOLD;
+}
+
+.jfx-tool-bar.background {
+    -fx-background-color: -fx-base-color;
+}
+
+/*.jfx-tool-bar HBox {*/
+/*    -fx-alignment: center-left;*/
+/*    -fx-padding: 0.0 5.0;*/
+/*}*/
+
+.jfx-tool-bar .jfx-decorator-button {
+    -fx-min-width: 40px;
+    -fx-max-width: 40px;
+    -fx-pref-width: 40px;
+    -fx-min-height: 40px;
+    -fx-max-height: 40px;
+    -fx-pref-height: 40px;
+    -fx-cursor: hand;
+}
+
+.jfx-tool-bar .jfx-decorator-button .svg {
+    -fx-fill: -fx-base-text-fill;
+}
+
+.jfx-tool-bar Label {
+    -fx-text-fill: WHITE;
+}
+
+.jfx-tool-bar.gray-background Label {
+    -fx-text-fill: BLACK;
+}
+
+.jfx-tool-bar .jfx-options-burger {
+    -fx-padding: 22px;
+}
+
+.jfx-tool-bar .jfx-options-burger StackPane {
+    -fx-pref-width: 4px;
+}
+
+.jfx-tool-bar .jfx-rippler {
+    -jfx-rippler-fill: WHITE;
+}
+
+.jfx-tool-bar-second {
+    -fx-pref-height: 42;
+    -fx-padding: 2 2 2 2;
+    -fx-background-color: -fx-base-check-color;
+    -fx-alignment: CENTER-LEFT;
+    -fx-spacing: 8;
+}
+
+.jfx-tool-bar-second .label {
+    -fx-text-fill: -fx-base-text-fill;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+.jfx-tool-bar-second .jfx-rippler {
+    -jfx-rippler-fill: WHITE;
+}
+
+.jfx-tool-bar-button {
+    -fx-toggle-icon4-size: 37px;
+    -fx-pref-height: -fx-toggle-icon4-size;
+    -fx-max-height: -fx-toggle-icon4-size;
+    -fx-min-height: -fx-toggle-icon4-size;
+    -fx-background-radius: 5px;
+    -fx-background-color: transparent;
+    -jfx-toggle-color: white;
+    -jfx-untoggle-color: transparent;
+}
+
+.jfx-tool-bar-button .icon {
+    -fx-fill: rgb(204.0, 204.0, 51.0);
+    -fx-padding: 10.0;
+}
+
+.jfx-tool-bar-button .jfx-rippler {
+    -jfx-rippler-fill: white;
+    -jfx-mask-type: CIRCLE;
+}
+
+.jfx-decorator-button {
+    -fx-max-width: 40px;
+    -fx-background-radius: 5px;
+    -fx-max-height: 40px;
+    -fx-background-color: transparent;
+    -jfx-toggle-color: rgba(128, 128, 255, 0.2);
+    -jfx-untoggle-color: transparent;
+}
+
+.jfx-decorator-button .icon {
+    -fx-fill: rgb(204.0, 204.0, 51.0);
+    -fx-padding: 0.0;
+}
+
+.jfx-decorator-button .jfx-rippler {
+    -jfx-rippler-fill: white;
+    -jfx-mask-type: CIRCLE;
+    -fx-padding: 0.0;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * JFX Radio Button                                                            *
+ *                                                                             *
+ ******************************************************************************/
+
+ .jfx-radio-button {
+    -jfx-selected-color: -fx-base-check-color;
+ }
+
+.jfx-radio-button .radio {
+    -fx-stroke-width: 2.0px;
+    -fx-fill: transparent;
+}
+
+.jfx-radio-button .dot {
+    -fx-fill: -fx-base-check-color;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * JFX Slider                                                                  *
+ *                                                                             *
+ ******************************************************************************/
+
+.svg-slider .thumb {
+    -fx-stroke: black;
+    -fx-fill: black;
+}
+
+.jfx-slider:disabled {
+    -fx-opacity: 0.4;
+}
+
+/*******************************************************
+*                           						   *
+* For the main demo sliders 						   *
+*                          							   *
+*******************************************************/
+
+.jfx-slider {
+    -jfx-indicator-position: right;
+}
+
+.jfx-slider .thumb {
+    -fx-background-color: -fx-base-color;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX Rippler                                                                  *
+*                                                                              *
+*******************************************************************************/
+
+.jfx-rippler:hover {
+    -fx-cursor: hand;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX Button                                                                   *
+*                                                                              *
+*******************************************************************************/
+
+.jfx-button {
+    -jfx-disable-visual-focus: true;
+    -fx-cursor: hand;
+}
+
+.jfx-button .jfx-rippler {
+    -jfx-rippler-fill: -fx-base-check-color;
+    -jfx-mask-type: CIRCLE;
+    -fx-padding: 0.0;
+}
+
+.jfx-button-raised {
+    -fx-background-color: -fx-base-color;
+}
+
+.jfx-button-raised .jfx-rippler {
+    -jfx-rippler-fill: white;
+    -jfx-mask-type: CIRCLE;
+    -fx-padding: 0.0;
+}
+
+.jfx-button-raised, .jfx-button-raised * {
+    -fx-text-fill: -fx-base-text-fill;
+    -fx-font-size: 14px;
+}
+
+.jfx-button-border {
+    -fx-border-color: gray;
+    -fx-border-radius: 5px;
+    -fx-border-width: 0.2px;
+    -fx-padding: 8px;
+}
+
+.jfx-button-border, .jfx-button-border * {
+    -fx-text-fill: -fx-base-darker-color;
+}
+
+.jfx-button-raised-round {
+    -fx-background-color: -fx-base-color;
+    -fx-background-radius: 50px;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX Check Box                                                                *
+*                                                                              *
+*******************************************************************************/
+
+.jfx-check-box {
+    -fx-font-weight: BOLD;
+    -jfx-checked-color: -fx-base-check-color;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX Progress Bar                                                             *
+*                                                                              *
+*******************************************************************************/
+
+.jfx-progress-bar {
+    -fx-pref-width: 500.0;
+}
+
+.jfx-progress-bar > .track, .jfx-progress-bar > .bar {
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+}
+
+.jfx-progress-bar > .track {
+    -fx-background-color: #E0E0E0;
+}
+
+.jfx-progress-bar > .bar {
+    -fx-background-color: -fx-base-check-color;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX Textfield                                                                *
+*                                                                              *
+*******************************************************************************/
+
+.jfx-text-field, .jfx-password-field, .jfx-text-area {
+    -fx-background-color: #f1f3f4;
+    -fx-font-weight: BOLD;
+    -fx-prompt-text-fill: #808080;
+    -fx-alignment: top-left;
+    -fx-max-width: 1000000000;
+    -jfx-focus-color: -fx-base-check-color;
+    -fx-padding: 8;
+    -jfx-unfocus-color: transparent;
+}
+
+.jfx-text-area .viewport {
+    -fx-background-color: #ffffff;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX List View                                                                *
+*                                                                              *
+*******************************************************************************/
+
+.no-padding .list-cell {
+    -fx-padding: 0;
+}
+
+.jfx-list-cell, .list-cell {
+    /*-fx-background-color: WHITE;*/
+    -fx-background-color: transparent;
+}
+
+.list-cell:selected, .jfx-list-cell:selected,
+.list-cell:hover, .jfx-list-cell:hover {
+    -fx-text-fill: black;
+}
+
+.jfx-list-cell .jfx-rippler {
+    -jfx-rippler-fill: -fx-base-color;
+}
+
+.list-cell:odd:selected > .jfx-rippler > StackPane,
+.list-cell:even:selected > .jfx-rippler > StackPane {
+    -fx-background-color: derive(-fx-base-check-color, 30%);
+}
+
+.jfx-list-view {
+    -fx-background-insets: 0.0;
+    -jfx-cell-horizontal-margin: 0.0;
+    -jfx-cell-vertical-margin: 5.0;
+    -jfx-vertical-gap: 10.0;
+    -jfx-expanded: false;
+    -fx-background-color: transparent;
+}
+
+.jfx-list-view .scroll-bar {
+    -fx-skin: "org.jackhuang.hmcl.ui.construct.FloatScrollBarSkin";
+}
+
+.jfx-list-view .scroll-bar .track {
+    -fx-fill: transparent;
+}
+
+.jfx-list-view-float {
+    -fx-background-insets: 0.0;
+    -jfx-cell-horizontal-margin: 0.0;
+    -jfx-cell-vertical-margin: 5.0;
+    -jfx-vertical-gap: 10.0;
+    -jfx-expanded: false;
+    -fx-background-color: transparent;
+}
+
+.options-list {
+    -fx-background-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.26), 5, 0.06, -0.5, 1);
+}
+
+.depth-0 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0), 0, 0, 0, 0);
+}
+
+.depth-1 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.26), 10, 0.12, -1, 2);
+}
+
+.depth-2 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.26), 15, 0.16, 0, 4);
+}
+
+.depth-3 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.26), 20, 0.19, 0, 6);
+}
+
+.depth-4 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.26), 25, 0.25, 0, 8);
+}
+
+.depth-5 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.26), 30, 0.3, 0, 10);
+}
+
+.padding-8 {
+    -fx-padding: 8px;
+}
+
+.card {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-background-radius: 4;
+    -fx-padding: 8px;
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.26), 10, 0.12, -1, 2);
+}
+
+.card-non-transparent {
+    -fx-background-color: white;
+    -fx-background-radius: 4;
+    -fx-padding: 8px;
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.26), 5, 0.06, -0.5, 1);
+}
+
+.card:selected {
+    -fx-background-color: derive(-fx-base-color, 60%);
+}
+
+.card-list {
+    -fx-padding: 10;
+    -fx-spacing: 10;
+}
+
+.md-list-cell {
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1 0;
+}
+
+.md-list-cell:selected {
+    -fx-background-color: derive(-fx-base-color, 60%);
+}
+
+.options-sublist {
+    -fx-background-color: white;
+}
+
+.options-list-item {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 10 16 10 16;
+    -fx-font-size: 12;
+}
+
+.options-list-item.no-padding {
+    -fx-padding: 0;
+}
+
+.no-padding .options-list-item {
+    -fx-padding: 0;
+}
+
+.options-list-item:first {
+    -fx-background-radius: 4 4 0 0;
+    -fx-border-width: 0;
+}
+
+.options-list-item:last {
+    -fx-background-radius: 0 0 4 4;
+}
+
+.options-list-item:first:last {
+    -fx-background-radius: 4 4 4 4;
+    -fx-border-width: 0;
+}
+
+.options-list-item-expand-button {
+    -fx-toggle-icon4-size: 20px;
+    -fx-pref-width: -fx-toggle-icon4-size;
+    -fx-max-width: -fx-toggle-icon4-size;
+    -fx-min-width: -fx-toggle-icon4-size;
+    -fx-pref-height: -fx-toggle-icon4-size;
+    -fx-max-height: -fx-toggle-icon4-size;
+    -fx-min-height: -fx-toggle-icon4-size;
+    -fx-background-radius: 50px;
+    -fx-background-color: transparent;
+    -jfx-toggle-color: rgba(128, 128, 255, 0.2);
+    -jfx-untoggle-color: transparent;
+}
+
+.options-list-item-expand-button .jfx-rippler {
+    -jfx-rippler-fill: -fx-base-check-color;
+    -jfx-mask-type: CIRCLE;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX Toggle Button                                                            *
+*                                                                              *
+*******************************************************************************/
+
+.jfx-toggle-button {
+    -jfx-toggle-color: -fx-base-check-color;
+}
+
+.toggle-label {
+    -fx-font-size: 14.0px;
+}
+
+.toggle-icon1 .icon {
+    -fx-fill: #4285F4;
+    -fx-padding: 20.0;
+}
+
+.toggle-icon1 {
+    -fx-pref-width: 80px;
+    -fx-background-radius: 80px;
+    -fx-pref-height: 80px;
+    -fx-background-color: transparent;
+    -jfx-toggle-color: rgba(66.0, 133.0, 244.0, 0.29885056614875793);
+    -jfx-untoggle-color: transparent;
+}
+
+.toggle-icon1 .jfx-rippler {
+    -jfx-rippler-fill: rgba(66.0, 133.0, 244.0, 0.29885056614875793);
+    -jfx-mask-type: CIRCLE;
+}
+
+.toggle-icon2, .toggle-icon3, .jfx-decorator-button {
+    -fx-pref-width: 50px;
+    -fx-background-radius: 50px;
+    -fx-pref-height: 50px;
+    -fx-background-color: transparent;
+}
+
+.toggle-icon2 .icon {
+    -fx-fill: RED;
+}
+
+.toggle-icon2 .jfx-rippler {
+    -jfx-rippler-fill: RED;
+    -jfx-mask-type: CIRCLE;
+}
+
+.toggle-icon3 {
+    -fx-toggle-icon4-size: 35px;
+    -fx-pref-width: -fx-toggle-icon4-size;
+    -fx-max-width: -fx-toggle-icon4-size;
+    -fx-min-width: -fx-toggle-icon4-size;
+    -fx-pref-height: -fx-toggle-icon4-size;
+    -fx-max-height: -fx-toggle-icon4-size;
+    -fx-min-height: -fx-toggle-icon4-size;
+    -fx-background-radius: 50px;
+    -fx-background-color: transparent;
+    -jfx-toggle-color: white;
+    -jfx-untoggle-color: transparent;
+}
+
+.toggle-icon3 .icon {
+    -fx-fill: rgb(204.0, 204.0, 51.0);
+    -fx-padding: 10.0;
+}
+
+.toggle-icon3 .jfx-rippler {
+    -jfx-rippler-fill: white;
+    -jfx-mask-type: CIRCLE;
+}
+
+.toggle-icon4 {
+    -fx-toggle-icon4-size: 30px;
+    -fx-pref-width: -fx-toggle-icon4-size;
+    -fx-max-width: -fx-toggle-icon4-size;
+    -fx-min-width: -fx-toggle-icon4-size;
+    -fx-pref-height: -fx-toggle-icon4-size;
+    -fx-max-height: -fx-toggle-icon4-size;
+    -fx-min-height: -fx-toggle-icon4-size;
+    -fx-background-radius: 50px;
+    -fx-background-color: transparent;
+    -jfx-toggle-color: -fx-base-check-color;
+    -jfx-untoggle-color: transparent;
+}
+
+.toggle-icon4 .icon {
+    -fx-fill: rgb(204.0, 204.0, 51.0);
+    -fx-padding: 10.0;
+}
+
+.toggle-icon4 .jfx-rippler {
+    -jfx-rippler-fill: -fx-base-check-color;
+    -jfx-mask-type: CIRCLE;
+}
+
+.toggle-icon-tiny {
+    -fx-toggle-icon-tiny-size: 15px;
+    -fx-pref-width: -fx-toggle-icon-tiny-size;
+    -fx-max-width: -fx-toggle-icon-tiny-size;
+    -fx-min-width: -fx-toggle-icon-tiny-size;
+    -fx-pref-height: -fx-toggle-icon-tiny-size;
+    -fx-max-height: -fx-toggle-icon-tiny-size;
+    -fx-min-height: -fx-toggle-icon-tiny-size;
+    -fx-background-radius: 25px;
+    -fx-background-color: transparent;
+    -jfx-toggle-color: -fx-base-check-color;
+    -jfx-untoggle-color: transparent;
+}
+
+.toggle-icon-tiny .icon {
+    -fx-fill: rgb(204.0, 204.0, 51.0);
+    -fx-padding: 5.0;
+}
+
+.toggle-icon-tiny .jfx-rippler {
+    -jfx-rippler-fill: -fx-base-check-color;
+    -jfx-mask-type: CIRCLE;
+}
+
+.transparent {
+    -fx-background-color: null;
+}
+
+/*******************************************************************************
+*                                                                              *
+* Log Window                                                                   *
+*                                                                              *
+*******************************************************************************/
+
+.log-toggle:selected {
+    -fx-background-color: transparent;
+    -fx-border: 1px;
+    -fx-border-color: black;
+    -fx-text-fill: black;
+}
+
+.log-toggle {
+    -fx-background-color: transparent;
+    -fx-border: 1px;
+    -fx-border-color: gray;
+    -fx-text-fill: gray;
+}
+
+.log-window .scroll-bar .thumb {
+    -fx-fill: rgba(0, 0, 0, 0.5);
+}
+
+.log-window-list-cell {
+    -fx-text-fill: black;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #dddddd;
+}
+
+.log-window-list-cell:empty {
+    -fx-border-width: 0;
+}
+
+.log-window-list-cell:fatal {
+    -fx-background-color: #F7A699;
+}
+
+.log-window-list-cell:error {
+    -fx-background-color: #FFCCBB;
+}
+
+.log-window-list-cell:warn {
+    -fx-background-color: #FFEECC;
+}
+
+.log-window-list-cell:info {
+    -fx-background-color: #FFFFFF;
+}
+
+.log-window-list-cell:debug {
+    -fx-background-color: #EEE9E0;
+}
+
+.log-window-list-cell:trace {
+    -fx-background-color: #EEE9E0;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX Spinner                                                                  *
+*                                                                              *
+*******************************************************************************/
+
+.jfx-spinner > .arc {
+    -fx-stroke-width: 3.0;
+    -fx-fill: transparent;
+    -fx-stroke: -fx-base-color;
+}
+
+.first-spinner {
+    -jfx-radius: 20;
+}
+
+.first-spinner > .arc {
+    -fx-stroke-width: 5.0;
+}
+
+.small-spinner {
+    -jfx-radius: 10;
+}
+
+.small-spinner > .arc {
+    -fx-stroke-width: 3.0;
+}
+
+.small-spinner-pane .jfx-spinner {
+    -jfx-radius: 10;
+}
+
+.small-spinner-pane .jfx-spinner > .arc {
+    -fx-stroke-width: 3.0;
+}
+
+.large-spinner-pane .jfx-spinner {
+    -jfx-radius: 20;
+}
+
+.large-spinner-pane .jfx-spinner {
+    -fx-stroke-width: 5.0;
+}
+
+.second-spinner {
+    -jfx-radius: 30;
+}
+
+.second-spinner > .arc {
+    -fx-stroke-width: 5.0;
+}
+
+.third-spinner {
+    -jfx-radius: 40;
+}
+
+.third-spinner > .arc {
+    -fx-stroke-width: 5.0;
+}
+
+.fourth-spinner {
+    -jfx-radius: 50;
+}
+
+.fourth-spinner > .arc {
+    -fx-stroke-width: 5.0;
+}
+
+.fifth-spinner {
+    -jfx-radius: 60;
+}
+
+.fifth-spinner > .arc {
+    -fx-stroke-width: 5.0;
+}
+
+.sixth-spinner {
+    -jfx-radius: 70;
+}
+
+.sixth-spinner > .arc {
+    -fx-stroke-width: 5.0;
+}
+
+.seventh-spinner {
+    -jfx-radius: 80;
+}
+
+.seventh-spinner > .arc {
+    -fx-stroke-width: 5.0;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX Combo Box                                                                *
+*                                                                              *
+*******************************************************************************/
+
+.jfx-combo-box {
+    -jfx-focus-color: transparent;
+    -jfx-unfocus-color: transparent;
+    -fx-background-color: #f1f3f4;
+    -fx-padding: 4;
+    -fx-max-width: 1000000000;
+}
+
+.jfx-combo-box-warning {
+    -jfx-focus-color: #D34336;
+    -jfx-unfocus-color: #D34336;
+}
+
+.jfx-combo-box-warning .text {
+    -fx-fill: #D34336;
+}
+
+.combo-box-popup .list-view .jfx-list-cell {
+    -fx-background-insets: 0.0;
+}
+
+.combo-box-popup .list-view .jfx-list-cell .jfx-rippler {
+    -jfx-rippler-fill: -fx-base-color;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX Decorator                                                                *
+*                                                                              *
+*******************************************************************************/
+
+.jfx-decorator {
+    -fx-decorator-color: -fx-base-color;
+}
+
+.jfx-decorator-drawer {
+    -fx-background-color: rgba(244, 244, 244, 0.5);
+}
+
+.jfx-decorator-title {
+    -fx-text-fill: -fx-base-text-fill;
+    -fx-font-size: 14;
+}
+
+.jfx-decorator-title:transparent {
+    -fx-text-fill: black;
+}
+
+.jfx-decorator-tab .tab-container .tab-label {
+    -fx-text-fill: -fx-base-disabled-text-fill;
+    -fx-font-size: 14;
+}
+
+.jfx-decorator-tab .tab-container:selected .tab-label {
+    -fx-text-fill: -fx-base-text-fill;
+    -fx-font-weight: BOLD;
+}
+
+.window {
+    -fx-background-color: transparent;
+    -fx-padding: 8;
+}
+
+.body {
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.3, 0.0, 0.0);
+}
+
+.debug-border {
+    -fx-border-color: red;
+    -fx-border-width: 1;
+}
+
+.content-background {
+    -fx-background-color: rgba(244, 244, 244, 0.5);
+}
+
+.gray-background {
+    -fx-background-color: rgba(244, 244, 244, 0.5);
+}
+
+.white-background {
+    -fx-background-color: rgb(255, 255, 255);
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Scroll Bar			                                                       *
+ *                                                                             *
+ ******************************************************************************/
+
+.scroll-bar:vertical > .track-background, .scroll-bar:horizontal > .track-background {
+    -fx-background-color: #F1F1F1;
+    -fx-background-insets: 0.0;
+}
+
+.scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
+    -fx-background-color: #BCBCBC;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 1.0;
+}
+
+.scroll-bar > .increment-button, .scroll-bar > .decrement-button {
+    -fx-padding: 5 2 5 2;
+}
+
+.scroll-bar > .increment-button, .scroll-bar > .decrement-button, .scroll-bar:hover > .increment-button, .scroll-bar:hover > .decrement-button {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar > .increment-button > .increment-arrow, .scroll-bar > .decrement-button > .decrement-arrow {
+    -fx-background-color: rgb(150.0, 150.0, 150.0);
+}
+
+.scroll-bar > .increment-button > .increment-arrow {
+    -fx-shape: "M298 426h428l-214 214z";
+}
+
+.scroll-bar > .decrement-button > .decrement-arrow {
+    -fx-shape: "M298 598l214-214 214 214h-428z";
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Scroll Pane			                                                       *
+ *                                                                             *
+ ******************************************************************************/
+
+.scroll-pane {
+    -fx-background-color: null;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-snap-to-pixel: false;
+}
+
+.scroll-pane:focused {
+    -fx-background-insets: 0;
+}
+
+.scroll-pane .corner {
+    -fx-background-insets: 0;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: null;
+ }
+
+.scroll-pane .scroll-bar {
+    -fx-skin: "org.jackhuang.hmcl.ui.construct.FloatScrollBarSkin";
+}
+
+.scroll-pane .scroll-bar .track {
+    -fx-fill: transparent;
+}
+
+/*******************************************************************************
+*                                                                              *
+* Error Facade                                                                 *
+*                                                                              *
+*******************************************************************************/
+
+.error-label {
+    -fx-text-fill: #D34336;
+    -fx-font-size: 0.75em;
+    -fx-font-weight: bold;
+}
+
+.error-icon {
+    -fx-fill: #D34336;
+    -fx-font-size: 1.0em;
+}
+
+.jfx-text-field:error, .jfx-password-field:error, .jfx-text-area:error, .jfx-combo-box:error {
+    -jfx-focus-color: #D34336;
+    -jfx-unfocus-color: #D34336;
+}
+
+.jfx-text-field .error-label, .jfx-password-field .error-label, .jfx-text-area .error-label {
+    -fx-text-fill: #D34336;
+    -fx-font-size: 0.75em;
+}
+
+.jfx-text-field .error-icon, .jfx-password-field .error-icon, .jfx-text-area .error-icon {
+    -fx-fill: #D34336;
+    -fx-font-size: 1.0em;
+}
+
+.fit-width {
+    -fx-pref-width: 100%;
+}
