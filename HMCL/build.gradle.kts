@@ -115,7 +115,7 @@ tasks.getByName<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("sha
 
     manifest {
         attributes(
-            "Created-By" to "Copyright(c) 2013-2023 huangyuhui.",
+            "Created-By" to "Original copyright belongs to: huangyuhui, modified part of the code copyright belongs to: Melon-Studio",
             "Main-Class" to "org.jackhuang.hmcl.Main",
             "Multi-Release" to "true",
             "Implementation-Version" to project.version,
@@ -175,7 +175,6 @@ tasks.processResources {
             }
         }
     }
-
     from("build/compiled-resources")
 
     convertToBSS("assets/css/root.css")

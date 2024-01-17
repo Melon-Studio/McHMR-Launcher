@@ -36,9 +36,9 @@ public class AboutPage extends StackPane {
         {
             IconedTwoLineListItem launcher = new IconedTwoLineListItem();
             launcher.setImage(new Image("/assets/img/craft_table.png"));
-            launcher.setTitle("Hello Minecraft! Launcher");
+            launcher.setTitle("Hot of Hello Minecraft! Launcher");
             launcher.setSubtitle(Metadata.VERSION);
-            launcher.setExternalLink("https://hmcl.huangyuhui.net");
+            launcher.setExternalLink("https://github.com/Melon-Studio/Hot-HMCL");
 
             IconedTwoLineListItem author = new IconedTwoLineListItem();
             author.setImage(new Image("/assets/img/yellow_fish.png"));
@@ -46,7 +46,13 @@ public class AboutPage extends StackPane {
             author.setSubtitle(i18n("about.author.statement"));
             author.setExternalLink("https://space.bilibili.com/1445341");
 
-            about.getContent().setAll(launcher, author);
+            IconedTwoLineListItem distributor = new IconedTwoLineListItem();
+            distributor.setImage((new Image("/assets/img/melon_studio.png")));
+            distributor.setTitle("Melon Studio");
+            distributor.setSubtitle(i18n("about.distributor.subtitle"));
+            distributor.setExternalLink("https://github.com/Melon-Studio");
+
+            about.getContent().setAll(launcher, author, distributor);
         }
 
         ComponentList thanks = new ComponentList();
@@ -157,7 +163,7 @@ public class AboutPage extends StackPane {
             IconedTwoLineListItem copyright = new IconedTwoLineListItem();
             copyright.setTitle(i18n("about.copyright"));
             copyright.setSubtitle(i18n("about.copyright.statement"));
-            copyright.setExternalLink("https://hmcl.huangyuhui.net/about/");
+            copyright.setExternalLink("https://github.com/Melon-Studio/");
 
             IconedTwoLineListItem claim = new IconedTwoLineListItem();
             claim.setTitle(i18n("about.claim"));
@@ -167,7 +173,7 @@ public class AboutPage extends StackPane {
             IconedTwoLineListItem openSource = new IconedTwoLineListItem();
             openSource.setTitle(i18n("about.open_source"));
             openSource.setSubtitle(i18n("about.open_source.statement"));
-            openSource.setExternalLink("https://github.com/huanghongxun/HMCL");
+            openSource.setExternalLink("https://github.com/Melon-Studio/Hot-HMCL");
 
             legal.getContent().setAll(copyright, claim, openSource);
         }

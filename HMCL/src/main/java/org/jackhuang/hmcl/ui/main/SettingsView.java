@@ -49,11 +49,11 @@ public abstract class SettingsView extends StackPane {
     protected final JFXComboBox<SupportedLocale> cboLanguage;
     protected final MultiFileItem<EnumCommonDirectory> fileCommonLocation;
     protected final ComponentSublist fileCommonLocationSublist;
-    protected final Label lblUpdate;
-    protected final Label lblUpdateSub;
-    protected final JFXRadioButton chkUpdateStable;
-    protected final JFXRadioButton chkUpdateDev;
-    protected final JFXButton btnUpdate;
+//    protected final Label lblUpdate;
+//    protected final Label lblUpdateSub;
+//    protected final JFXRadioButton chkUpdateStable;
+//    protected final JFXRadioButton chkUpdateDev;
+//    protected final JFXButton btnUpdate;
     protected final ScrollPane scroll;
 
     public SettingsView() {
@@ -68,80 +68,80 @@ public abstract class SettingsView extends StackPane {
             {
                 ComponentList settingsPane = new ComponentList();
                 {
-                    {
-                        StackPane sponsorPane = new StackPane();
-                        sponsorPane.setCursor(Cursor.HAND);
-                        sponsorPane.setOnMouseClicked(e -> onSponsor());
-                        sponsorPane.setPadding(new Insets(8, 0, 8, 0));
-
-                        GridPane gridPane = new GridPane();
-
-                        ColumnConstraints col = new ColumnConstraints();
-                        col.setHgrow(Priority.SOMETIMES);
-                        col.setMaxWidth(Double.POSITIVE_INFINITY);
-
-                        gridPane.getColumnConstraints().setAll(col);
-
-                        RowConstraints row = new RowConstraints();
-                        row.setMinHeight(Double.NEGATIVE_INFINITY);
-                        row.setValignment(VPos.TOP);
-                        row.setVgrow(Priority.SOMETIMES);
-                        gridPane.getRowConstraints().setAll(row);
-
-                        {
-                            Label label = new Label(i18n("sponsor.hmcl"));
-                            label.setWrapText(true);
-                            label.setTextAlignment(TextAlignment.JUSTIFY);
-                            GridPane.setRowIndex(label, 0);
-                            GridPane.setColumnIndex(label, 0);
-                            gridPane.getChildren().add(label);
-                        }
-
-                        sponsorPane.getChildren().setAll(gridPane);
-                        settingsPane.getContent().add(sponsorPane);
-                    }
+//                    {
+//                        StackPane sponsorPane = new StackPane();
+//                        sponsorPane.setCursor(Cursor.HAND);
+//                        sponsorPane.setOnMouseClicked(e -> onSponsor());
+//                        sponsorPane.setPadding(new Insets(8, 0, 8, 0));
+//
+//                        GridPane gridPane = new GridPane();
+//
+//                        ColumnConstraints col = new ColumnConstraints();
+//                        col.setHgrow(Priority.SOMETIMES);
+//                        col.setMaxWidth(Double.POSITIVE_INFINITY);
+//
+//                        gridPane.getColumnConstraints().setAll(col);
+//
+//                        RowConstraints row = new RowConstraints();
+//                        row.setMinHeight(Double.NEGATIVE_INFINITY);
+//                        row.setValignment(VPos.TOP);
+//                        row.setVgrow(Priority.SOMETIMES);
+//                        gridPane.getRowConstraints().setAll(row);
+//
+//                        {
+//                            Label label = new Label(i18n("sponsor.hmcl"));
+//                            label.setWrapText(true);
+//                            label.setTextAlignment(TextAlignment.JUSTIFY);
+//                            GridPane.setRowIndex(label, 0);
+//                            GridPane.setColumnIndex(label, 0);
+//                            gridPane.getChildren().add(label);
+//                        }
+//
+//                        sponsorPane.getChildren().setAll(gridPane);
+//                        settingsPane.getContent().add(sponsorPane);
+//                    }
                 }
 
-                {
-                    ComponentSublist updatePane = new ComponentSublist();
-                    updatePane.setTitle(i18n("update"));
-                    updatePane.setHasSubtitle(true);
-                    {
-                        VBox headerLeft = new VBox();
-
-                        lblUpdate = new Label(i18n("update"));
-                        lblUpdateSub = new Label();
-                        lblUpdateSub.getStyleClass().add("subtitle-label");
-
-                        headerLeft.getChildren().setAll(lblUpdate, lblUpdateSub);
-                        updatePane.setHeaderLeft(headerLeft);
-                    }
-
-                    {
-                        btnUpdate = new JFXButton();
-                        btnUpdate.setOnMouseClicked(e -> onUpdate());
-                        btnUpdate.getStyleClass().add("toggle-icon4");
-                        btnUpdate.setGraphic(SVG.update(Theme.blackFillBinding(), 20, 20));
-
-                        updatePane.setHeaderRight(btnUpdate);
-                    }
-
-                    {
-                        VBox content = new VBox();
-                        content.setSpacing(8);
-
-                        chkUpdateStable = new JFXRadioButton(i18n("update.channel.stable"));
-                        chkUpdateDev = new JFXRadioButton(i18n("update.channel.dev"));
-
-                        TextFlow noteWrapper = new TextFlow(new Text(i18n("update.note")));
-                        VBox.setMargin(noteWrapper, new Insets(10, 0, 0, 0));
-
-                        content.getChildren().setAll(chkUpdateStable, chkUpdateDev, noteWrapper);
-
-                        updatePane.getContent().add(content);
-                    }
-                    settingsPane.getContent().add(updatePane);
-                }
+//                {
+//                    ComponentSublist updatePane = new ComponentSublist();
+//                    updatePane.setTitle(i18n("update"));
+//                    updatePane.setHasSubtitle(true);
+//                    {
+//                        VBox headerLeft = new VBox();
+//
+//                        lblUpdate = new Label(i18n("update"));
+//                        lblUpdateSub = new Label();
+//                        lblUpdateSub.getStyleClass().add("subtitle-label");
+//
+//                        headerLeft.getChildren().setAll(lblUpdate, lblUpdateSub);
+//                        updatePane.setHeaderLeft(headerLeft);
+//                    }
+//
+//                    {
+//                        btnUpdate = new JFXButton();
+//                        btnUpdate.setOnMouseClicked(e -> onUpdate());
+//                        btnUpdate.getStyleClass().add("toggle-icon4");
+//                        btnUpdate.setGraphic(SVG.update(Theme.blackFillBinding(), 20, 20));
+//
+//                        updatePane.setHeaderRight(btnUpdate);
+//                    }
+//
+//                    {
+//                        VBox content = new VBox();
+//                        content.setSpacing(8);
+//
+//                        chkUpdateStable = new JFXRadioButton(i18n("update.channel.stable"));
+//                        chkUpdateDev = new JFXRadioButton(i18n("update.channel.dev"));
+//
+//                        TextFlow noteWrapper = new TextFlow(new Text(i18n("update.note")));
+//                        VBox.setMargin(noteWrapper, new Insets(10, 0, 0, 0));
+//
+//                        content.getChildren().setAll(chkUpdateStable, chkUpdateDev, noteWrapper);
+//
+//                        updatePane.getContent().add(content);
+//                    }
+//                    settingsPane.getContent().add(updatePane);
+//                }
 
                 {
                     fileCommonLocation = new MultiFileItem<>();

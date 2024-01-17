@@ -325,8 +325,8 @@ public final class Controllers {
         if (href.startsWith("hmcl://")) {
             switch (href) {
                 case "hmcl://settings/feedback":
-                    Controllers.getSettingsPage().showFeedback();
-                    Controllers.navigate(Controllers.getSettingsPage());
+//                    Controllers.getSettingsPage().showFeedback();
+//                    Controllers.navigate(Controllers.getSettingsPage());
                     break;
                 case "hmcl://hide-announcement":
                     Controllers.getRootPage().getMainPage().hideAnnouncementPane();
