@@ -241,35 +241,35 @@ public class VersionPage extends DecoratorAnimatedPage implements DecoratorPage 
                 versionSettingsItem.activeProperty().bind(control.tab.getSelectionModel().selectedItemProperty().isEqualTo(control.versionSettingsTab));
                 versionSettingsItem.setOnAction(e -> control.tab.select(control.versionSettingsTab));
 
-                AdvancedListItem modListItem = new AdvancedListItem();
-                modListItem.getStyleClass().add("navigation-drawer-item");
-                modListItem.setTitle(i18n("mods.manage"));
-                modListItem.setLeftGraphic(wrap(SVG::puzzle));
-                modListItem.setActionButtonVisible(false);
-                modListItem.activeProperty().bind(control.tab.getSelectionModel().selectedItemProperty().isEqualTo(control.modListTab));
-                modListItem.setOnAction(e -> control.tab.select(control.modListTab));
+//                AdvancedListItem modListItem = new AdvancedListItem();
+//                modListItem.getStyleClass().add("navigation-drawer-item");
+//                modListItem.setTitle(i18n("mods.manage"));
+//                modListItem.setLeftGraphic(wrap(SVG::puzzle));
+//                modListItem.setActionButtonVisible(false);
+//                modListItem.activeProperty().bind(control.tab.getSelectionModel().selectedItemProperty().isEqualTo(control.modListTab));
+//                modListItem.setOnAction(e -> control.tab.select(control.modListTab));
 
-                AdvancedListItem installerListItem = new AdvancedListItem();
-                installerListItem.getStyleClass().add("navigation-drawer-item");
-                installerListItem.setTitle(i18n("settings.tabs.installers"));
-                installerListItem.setLeftGraphic(wrap(SVG::cube));
-                installerListItem.setActionButtonVisible(false);
-                installerListItem.activeProperty().bind(control.tab.getSelectionModel().selectedItemProperty().isEqualTo(control.installerListTab));
-                installerListItem.setOnAction(e -> control.tab.select(control.installerListTab));
+//                AdvancedListItem installerListItem = new AdvancedListItem();
+//                installerListItem.getStyleClass().add("navigation-drawer-item");
+//                installerListItem.setTitle(i18n("settings.tabs.installers"));
+//                installerListItem.setLeftGraphic(wrap(SVG::cube));
+//                installerListItem.setActionButtonVisible(false);
+//                installerListItem.activeProperty().bind(control.tab.getSelectionModel().selectedItemProperty().isEqualTo(control.installerListTab));
+//                installerListItem.setOnAction(e -> control.tab.select(control.installerListTab));
 
-                AdvancedListItem worldListItem = new AdvancedListItem();
-                worldListItem.getStyleClass().add("navigation-drawer-item");
-                worldListItem.setTitle(i18n("world.manage"));
-                worldListItem.setLeftGraphic(wrap(SVG::earth));
-                worldListItem.setActionButtonVisible(false);
-                worldListItem.activeProperty().bind(control.tab.getSelectionModel().selectedItemProperty().isEqualTo(control.worldListTab));
-                worldListItem.setOnAction(e -> control.tab.select(control.worldListTab));
+//                AdvancedListItem worldListItem = new AdvancedListItem();
+//                worldListItem.getStyleClass().add("navigation-drawer-item");
+//                worldListItem.setTitle(i18n("world.manage"));
+//                worldListItem.setLeftGraphic(wrap(SVG::earth));
+//                worldListItem.setActionButtonVisible(false);
+//                worldListItem.activeProperty().bind(control.tab.getSelectionModel().selectedItemProperty().isEqualTo(control.worldListTab));
+//                worldListItem.setOnAction(e -> control.tab.select(control.worldListTab));
 
                 AdvancedListBox sideBar = new AdvancedListBox()
-                        .add(versionSettingsItem)
-                        .add(modListItem)
-                        .add(installerListItem)
-                        .add(worldListItem);
+                        .add(versionSettingsItem);
+//                        .add(modListItem)
+//                        .add(installerListItem)
+//                        .add(worldListItem);
                 VBox.setVgrow(sideBar, Priority.ALWAYS);
 
                 PopupMenu browseList = new PopupMenu();
@@ -300,28 +300,28 @@ public class VersionPage extends DecoratorAnimatedPage implements DecoratorPage 
                         new IconedMenuItem(null, i18n("version.manage.clean"), FXUtils.withJFXPopupClosing(control::clearJunkFiles, managementPopup)).addTooltip(i18n("version.manage.clean.tooltip"))
                 );
 
-                AdvancedListBox toolbar = new AdvancedListBox()
-                        .addNavigationDrawerItem(upgradeItem -> {
-                            upgradeItem.setTitle(i18n("version.update"));
-                            upgradeItem.setLeftGraphic(wrap(SVG::update));
-                            upgradeItem.visibleProperty().bind(control.currentVersionUpgradable);
-                            upgradeItem.setOnAction(e -> control.updateGame());
-                        })
-                        .addNavigationDrawerItem(testGameItem -> {
-                            testGameItem.setTitle(i18n("version.launch.test"));
-                            testGameItem.setLeftGraphic(wrap(SVG::rocketLaunchOutline));
-                            testGameItem.setOnAction(e -> control.testGame());
-                        })
-                        .addNavigationDrawerItem(browseMenuItem -> {
-                            browseMenuItem.setTitle(i18n("settings.game.exploration"));
-                            browseMenuItem.setLeftGraphic(wrap(SVG::folderOutline));
-                            browseMenuItem.setOnAction(e -> browsePopup.show(browseMenuItem, JFXPopup.PopupVPosition.BOTTOM, JFXPopup.PopupHPosition.LEFT, browseMenuItem.getWidth(), 0));
-                        })
-                        .addNavigationDrawerItem(managementItem -> {
-                            managementItem.setTitle(i18n("settings.game.management"));
-                            managementItem.setLeftGraphic(wrap(SVG::wrenchOutline));
-                            managementItem.setOnAction(e -> managementPopup.show(managementItem, JFXPopup.PopupVPosition.BOTTOM, JFXPopup.PopupHPosition.LEFT, managementItem.getWidth(), 0));
-                        });
+                AdvancedListBox toolbar = new AdvancedListBox();
+//                        .addNavigationDrawerItem(upgradeItem -> {
+//                            upgradeItem.setTitle(i18n("version.update"));
+//                            upgradeItem.setLeftGraphic(wrap(SVG::update));
+//                            upgradeItem.visibleProperty().bind(control.currentVersionUpgradable);
+//                            upgradeItem.setOnAction(e -> control.updateGame());
+//                        })
+//                        .addNavigationDrawerItem(testGameItem -> {
+//                            testGameItem.setTitle(i18n("version.launch.test"));
+//                            testGameItem.setLeftGraphic(wrap(SVG::rocketLaunchOutline));
+//                            testGameItem.setOnAction(e -> control.testGame());
+//                        })
+//                        .addNavigationDrawerItem(browseMenuItem -> {
+//                            browseMenuItem.setTitle(i18n("settings.game.exploration"));
+//                            browseMenuItem.setLeftGraphic(wrap(SVG::folderOutline));
+//                            browseMenuItem.setOnAction(e -> browsePopup.show(browseMenuItem, JFXPopup.PopupVPosition.BOTTOM, JFXPopup.PopupHPosition.LEFT, browseMenuItem.getWidth(), 0));
+//                        })
+//                        .addNavigationDrawerItem(managementItem -> {
+//                            managementItem.setTitle(i18n("settings.game.management"));
+//                            managementItem.setLeftGraphic(wrap(SVG::wrenchOutline));
+//                            managementItem.setOnAction(e -> managementPopup.show(managementItem, JFXPopup.PopupVPosition.BOTTOM, JFXPopup.PopupHPosition.LEFT, managementItem.getWidth(), 0));
+//                        });
                 toolbar.getStyleClass().add("advanced-list-box-clear-padding");
                 FXUtils.setLimitHeight(toolbar, 40 * 4 + 12 * 2);
 

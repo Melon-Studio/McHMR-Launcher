@@ -18,6 +18,7 @@
 package org.jackhuang.hmcl.ui.main;
 
 import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.geometry.Pos;
 import org.jackhuang.hmcl.event.EventBus;
 import org.jackhuang.hmcl.event.RefreshedVersionsEvent;
 import org.jackhuang.hmcl.game.HMCLGameRepository;
@@ -70,6 +71,28 @@ public class RootPage extends DecoratorAnimatedPage implements DecoratorPage {
 
         getStyleClass().remove("gray-background");
         getLeft().getStyleClass().add("gray-background");
+
+//        String programDirectory = System.getProperty("user.dir");
+//
+//        String hmclFolderPath = programDirectory + File.separator + "HMCL";
+//
+//        File hmclFolder = new File(hmclFolderPath);
+//        if (!hmclFolder.exists()) {
+//            if (hmclFolder.mkdir()) {
+//                System.out.println("HMCL folder created.");
+//            } else {
+//                System.err.println("Failed to create HMCL folder.");
+//                return;
+//            }
+//        }
+//
+//        String hotConfigFilePath = hmclFolderPath + File.separator + "HotConfig.json";
+//
+//        File hotConfigFile = new File(hotConfigFilePath);
+//        if (!hotConfigFile.exists()) {
+//            // TODO: 在此处添加你的逻辑，用于处理HotConfig.json文件不存在的情况
+//            Controllers.dialog(new RootDetailsInputPane());
+//        }
     }
 
     @Override
@@ -85,12 +108,12 @@ public class RootPage extends DecoratorAnimatedPage implements DecoratorPage {
     public MainPage getMainPage() {
         if (mainPage == null) {
             MainPage mainPage = new MainPage();
-            FXUtils.applyDragListener(mainPage, ModpackHelper::isFileModpackByExtension, modpacks -> {
-                File modpack = modpacks.get(0);
-                Controllers.getDecorator().startWizard(
-                        new ModpackInstallWizardProvider(Profiles.getSelectedProfile(), modpack),
-                        i18n("install.modpack"));
-            });
+//            FXUtils.applyDragListener(mainPage, ModpackHelper::isFileModpackByExtension, modpacks -> {
+//                File modpack = modpacks.get(0);
+//                Controllers.getDecorator().startWizard(
+//                        new ModpackInstallWizardProvider(Profiles.getSelectedProfile(), modpack),
+//                        i18n("install.modpack"));
+//            });
 
             FXUtils.onChangeAndOperate(Profiles.selectedVersionProperty(), mainPage::setCurrentGame);
             mainPage.showUpdateProperty().bind(UpdateChecker.outdatedProperty());
@@ -171,6 +194,13 @@ public class RootPage extends DecoratorAnimatedPage implements DecoratorPage {
             launcherSettingsItem.setTitle(i18n("settings"));
             launcherSettingsItem.setOnAction(e -> Controllers.navigate(Controllers.getSettingsPage()));
 
+            // seventh item in left sidebar
+            AdvancedListItem testFunctionItem = new AdvancedListItem();
+            testFunctionItem.setLeftGraphic(wrap(SVG::bug));
+            testFunctionItem.setActionButtonVisible(false);
+            testFunctionItem.setTitle("功能测试");
+            testFunctionItem.setOnAction(e -> Controllers.dialog(new RootDetailsInputPane()));
+
             // the left sidebar
             AdvancedListBox sideBar = new AdvancedListBox()
                     .startCategory(i18n("account").toUpperCase(Locale.ROOT))
@@ -181,7 +211,8 @@ public class RootPage extends DecoratorAnimatedPage implements DecoratorPage {
 //                    .add(downloadItem)
                     .startCategory(i18n("settings.launcher.general").toUpperCase(Locale.ROOT))
 //                    .add(multiplayerItem)
-                    .add(launcherSettingsItem);
+                    .add(launcherSettingsItem)
+                    .add(testFunctionItem);
 
             // the root page, with the sidebar in left, navigator in center.
             setLeft(sideBar);

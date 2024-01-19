@@ -1,32 +1,16 @@
-# ⛏ Hello Minecraft! Launcher 💎
-[![Build Status](https://ci.huangyuhui.net/job/HMCL/badge/icon?.svg)](https://ci.huangyuhui.net/job/HMCL)
-![Downloads](https://img.shields.io/github/downloads/huanghongxun/HMCL/total)
-![Stars](https://img.shields.io/github/stars/huanghongxun/HMCL)
-[![Discord](https://img.shields.io/discord/995291757799538688.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/jVvC7HfM6U)
-[![KOOK](https://img.shields.io/badge/KOOK-HMCL-brightgreen)](https://kook.top/Kx7n3t)
+# Hot of Hello Minecraft! Launcher
 
 English | [中文](README_cn.md)
 
 ## Introduction
-HMCL is a cross-platform Minecraft launcher which supports Mod Management, Game Customizing, Auto Installing (Forge, Fabric, Quilt, LiteLoader and OptiFine), Modpack Creating, UI Customization, and more.
+HotHMCL is a modified version of the cross-platform launcher based on Hello Minecraft! Launcher. It HotHMCL a launcher for Minecraft server clients, supports all functions of HMCL, develops some new functions, and additionally restricts some functions of HMCL launcher.
 
-HMCL has amazing cross-platform capabilities.
-It can not only run on different operating systems such as Windows, Linux, and macOS, 
-but also supports multiple CPU architectures such as x86, arm, mips, and loongarch.
-You can easily play Minecraft on different platforms through HMCL.
-
-For systems and CPU architectures supported by HMCL, see [this table](PLATFORM.md).
-
+If you want to know about HMCL launcher, you can click [here](https://github.com/HMCL-dev/HMCL) to visit the open source repository of HMCL launcher.
 ## Download
-Download the latest version from [the official website](https://hmcl.huangyuhui.net/download).
-
-Note: The recent versions released in GitHub are beta versions, which contains extra testing functions compared to the release versions on the official website. However, they may be unstable and you're more likely to encounter bugs or unexpected problems.
-
-Although not necessary, it is recommended to download the ones from the official website.
+You can click on the Release on the right to view the latest release download. We provide a detailed configuration tutorial. You can click [here](https://www.yuque.com/go/book/47982025) to view it.
 
 ## License
-The software is distributed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) with additional terms.
-
+This procedure follows the international GPLv3 open source license, the specific content please read [LICENSE](https://www.gnu.org/licenses/gpl-3.0.html) file. The following additional terms are attached to the license.
 ### Additional terms under GPLv3 Section 7
 1. When you distribute a modified version of the software, you must change the software name or the version number in a reasonable way in order to distinguish it from the original version. (Under [GPLv3, 7(c)](https://github.com/huanghongxun/HMCL/blob/11820e31a85d8989e41d97476712b07e7094b190/LICENSE#L372-L374))
 
@@ -37,7 +21,7 @@ The software is distributed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.h
 ## Contribution
 If you want to submit a pull request, there are some requirements:
 * IDE: Intellij IDEA
-* Compiler: Java 1.8
+* Compiler: Java 11
 * Do NOT modify `gradle` files
 
 ### Compilation
@@ -47,7 +31,7 @@ Simply execute the following command in project root directory:
 ./gradlew clean build
 ```
 
-Make sure you have Java installed with JavaFX 8 at least. Liberica Full JDK 8 or later is recommended.
+Make sure you have Java installed with JavaFX 8 at least. Liberica Full JDK 11 or later is recommended.
 
 ## JVM Options (for debugging)
 | Parameter                                    | Description                                                                                                                       |

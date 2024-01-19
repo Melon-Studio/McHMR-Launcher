@@ -107,7 +107,7 @@ public class GameListPage extends DecoratorAnimatedPage implements DecoratorPage
                         globalManageItem.setLeftGraphic(VersionPage.wrap(SVG::gearOutline));
                         globalManageItem.setOnAction(e -> modifyGlobalGameSettings());
                     });
-            FXUtils.setLimitHeight(bottomLeftCornerList, 40 * 4 + 12 * 2);
+            FXUtils.setLimitHeight(bottomLeftCornerList, 40 * 2 + 12 * 2);
             setLeft(pane, bottomLeftCornerList);
         }
 

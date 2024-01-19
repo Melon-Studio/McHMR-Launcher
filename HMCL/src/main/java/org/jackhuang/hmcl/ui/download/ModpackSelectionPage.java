@@ -78,11 +78,11 @@ public final class ModpackSelectionPage extends VBox implements WizardPage {
             Platform.runLater(controller::onNext);
         }
 
-        FXUtils.applyDragListener(this, ModpackHelper::isFileModpackByExtension, modpacks -> {
-            File modpack = modpacks.get(0);
-            controller.getSettings().put(MODPACK_FILE, modpack);
-            controller.onNext();
-        });
+//        FXUtils.applyDragListener(this, ModpackHelper::isFileModpackByExtension, modpacks -> {
+//            File modpack = modpacks.get(0);
+//            controller.getSettings().put(MODPACK_FILE, modpack);
+//            controller.onNext();
+//        });
     }
 
     private JFXButton createButton(String type, Runnable action) {

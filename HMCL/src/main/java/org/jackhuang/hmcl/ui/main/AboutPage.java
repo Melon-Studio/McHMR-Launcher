@@ -92,25 +92,29 @@ public class AboutPage extends StackPane {
             mcbbs.setSubtitle(i18n("about.thanks_to.mcbbs.statement"));
             mcbbs.setExternalLink("https://www.mcbbs.net/");
 
-            IconedTwoLineListItem mcmod = new IconedTwoLineListItem();
-            mcmod.setImage(new Image("/assets/img/mcmod.png"));
-            mcmod.setTitle(i18n("about.thanks_to.mcmod"));
-            mcmod.setSubtitle(i18n("about.thanks_to.mcmod.statement"));
-            mcmod.setExternalLink("https://www.mcmod.cn/");
+//            IconedTwoLineListItem mcmod = new IconedTwoLineListItem();
+//            mcmod.setImage(new Image("/assets/img/mcmod.png"));
+//            mcmod.setTitle(i18n("about.thanks_to.mcmod"));
+//            mcmod.setSubtitle(i18n("about.thanks_to.mcmod.statement"));
+//            mcmod.setExternalLink("https://www.mcmod.cn/");
 
-            IconedTwoLineListItem contributors = new IconedTwoLineListItem();
-            contributors.setImage(new Image("/assets/img/github.png"));
-            contributors.setTitle(i18n("about.thanks_to.contributors"));
-            contributors.setSubtitle(i18n("about.thanks_to.contributors.statement"));
-            contributors.setExternalLink("https://github.com/huanghongxun/HMCL/graphs/contributors");
+//            IconedTwoLineListItem contributors = new IconedTwoLineListItem();
+//            contributors.setImage(new Image("/assets/img/github.png"));
+//            contributors.setTitle(i18n("about.thanks_to.contributors"));
+//            contributors.setSubtitle(i18n("about.thanks_to.contributors.statement"));
+//            contributors.setExternalLink("https://github.com/huanghongxun/HMCL/graphs/contributors");
 
-            IconedTwoLineListItem users = new IconedTwoLineListItem();
-            users.setImage(new Image("/assets/img/craft_table.png"));
-            users.setTitle(i18n("about.thanks_to.users"));
-            users.setSubtitle(i18n("about.thanks_to.users.statement"));
-            users.setExternalLink("https://hmcl.huangyuhui.net/api/redirect/sponsor");
+//            IconedTwoLineListItem users = new IconedTwoLineListItem();
+//            users.setImage(new Image("/assets/img/craft_table.png"));
+//            users.setTitle(i18n("about.thanks_to.users"));
+//            users.setSubtitle(i18n("about.thanks_to.users.statement"));
+//            users.setExternalLink("https://hmcl.huangyuhui.net/api/redirect/sponsor");
 
-            thanks.getContent().setAll(yushijinhun, bangbang93, glavo, mcbbs, mcmod, gamerteam, redLnn, contributors, users);
+            thanks.getContent().setAll(yushijinhun, bangbang93, glavo, mcbbs
+//                    ,mcmod
+                    , gamerteam, redLnn
+//                    , contributors, users
+            );
         }
 
         ComponentList dep = new ComponentList();

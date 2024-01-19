@@ -55,9 +55,9 @@ public class WorldListPage extends ListPageBase<WorldListItem> implements Versio
     private String gameVersion;
 
     public WorldListPage() {
-        FXUtils.applyDragListener(this, it -> "zip".equals(FileUtils.getExtension(it)), modpacks -> {
-            installWorld(modpacks.get(0));
-        });
+//        FXUtils.applyDragListener(this, it -> "zip".equals(FileUtils.getExtension(it)), modpacks -> {
+//            installWorld(modpacks.get(0));
+//        });
 
         showAll.addListener(e -> {
             if (worlds != null)

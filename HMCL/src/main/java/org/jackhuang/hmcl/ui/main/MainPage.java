@@ -115,15 +115,16 @@ public final class MainPage extends StackPane implements DecoratorPage {
 
         setPadding(new Insets(20));
 
-        if (Metadata.isNightly() || (Metadata.isDev() && !Objects.equals(Metadata.VERSION, config().getShownTips().get(ANNOUNCEMENT)))) {
+        if (Metadata.isNightly()) {
             announcementPane = new VBox(16);
-            if (Metadata.isNightly()) {
-                announcementPane.getChildren().add(new AnnouncementCard(i18n("update.channel.nightly.title"), i18n("update.channel.nightly.hint")));
-            } else if (Metadata.isDev()) {
-                announcementPane.getChildren().add(new AnnouncementCard(i18n("update.channel.dev.title"), i18n("update.channel.dev.hint")));
-            }
+            announcementPane.getChildren().add(new AnnouncementCard(i18n("update.channel.nightly.title"), i18n("update.channel.nightly.hint")));
+            getChildren().add(announcementPane);
+        } else if (Metadata.isDev() && !Objects.equals(Metadata.VERSION, config().getShownTips().get(ANNOUNCEMENT))) {
+            announcementPane = new VBox(16);
+            announcementPane.getChildren().add(new AnnouncementCard(i18n("update.channel.dev.title"), i18n("update.channel.dev.hint")));
             getChildren().add(announcementPane);
         }
+
 
         updatePane = new StackPane();
         updatePane.setVisible(false);

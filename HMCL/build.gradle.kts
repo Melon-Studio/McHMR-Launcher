@@ -35,6 +35,7 @@ version = "$versionRoot.$buildNumber"
 
 dependencies {
     implementation(project(":HMCLCore"))
+    implementation(project(":Hot-HMCLCore"))
     implementation("libs:JFoenix")
 }
 
