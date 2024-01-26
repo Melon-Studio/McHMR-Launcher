@@ -11,7 +11,6 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import org.jackhuang.hmcl.auth.authlibinjector.AuthlibInjectorServer;
 import org.jackhuang.hmcl.task.Schedulers;
 import org.jackhuang.hmcl.task.Task;
 import org.jackhuang.hmcl.ui.animation.ContainerAnimations;
@@ -30,10 +29,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 
-import static org.jackhuang.hmcl.setting.ConfigHolder.config;
 import static org.jackhuang.hmcl.ui.FXUtils.onEscPressed;
 import static org.jackhuang.hmcl.util.Logging.LOG;
 import static org.jackhuang.hmcl.util.i18n.I18n.i18n;
+import static top.dooper.top.app.CheckHotCoreFolder.*;
+import static top.dooper.top.app.CheckHotCoreFolder.getConfigFilePath;
 
 public final class RootDetailsInputPane extends TransitionPane implements DialogAware {
     private final Label lblServerUrl;
@@ -101,14 +101,14 @@ public final class RootDetailsInputPane extends TransitionPane implements Dialog
                 GridPane.setColumnIndex(lblServerName, 1);
                 GridPane.setRowIndex(lblServerName, 1);
 
-                lblServerWarning = new Label(i18n("account.injector.http"));
+                lblServerWarning = new Label(i18n("root.main.warn"));
                 lblServerWarning.setStyle("-fx-text-fill: red;");
                 GridPane.setColumnIndex(lblServerWarning, 0);
                 GridPane.setRowIndex(lblServerWarning, 2);
                 GridPane.setColumnSpan(lblServerWarning, 2);
 
                 body.getChildren().setAll(
-                        Lang.apply(new Label(i18n("account.injector.server_url")), l -> {
+                        Lang.apply(new Label(i18n("root.main.part")), l -> {
                             GridPane.setColumnIndex(l, 0);
                             GridPane.setRowIndex(l, 0);
                         }),
@@ -208,39 +208,22 @@ public final class RootDetailsInputPane extends TransitionPane implements Dialog
     }
 
     private void onAddFinish() {
-        String programDirectory = System.getProperty("user.dir");
-        String hmclFolderPath = programDirectory + File.separator + "HMCL";
-
-        File hmclFolder = new File(hmclFolderPath);
-        if (!hmclFolder.exists()) {
-            if (hmclFolder.mkdir()) {
-                System.out.println("HMCL folder created.");
-            } else {
-                System.err.println("Failed to create HMCL folder.");
-                return;
-            }
+        if (!existHotFolder()) {
+            new File(getHotFolderPath()).mkdir();
         }
 
-        String hotConfigFilePath = hmclFolderPath + File.separator + "HotConfig.json";
-
-        File hotConfigFile = new File(hotConfigFilePath);
-        if (!hotConfigFile.exists()) {
+        if (!existConfigFile()) {
             try {
-                if (hotConfigFile.createNewFile()) {
-                    System.out.println("HotConfig.json file created.");
-                } else {
-                    System.err.println("Failed to create HotConfig.json file.");
-                    return;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-                return;
+                new File(getConfigFilePath()).createNewFile();
+            }catch (IOException e) {
+                LOG.info(e.getMessage());
             }
+
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        try (FileWriter writer = new FileWriter(hotConfigFilePath)) {
+        try (FileWriter writer = new FileWriter(getConfigFilePath())) {
             gson.toJson(serverBeingAdded, writer);
             System.out.println("HotConfig.json file updated with new content.");
         } catch (IOException e) {

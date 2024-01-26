@@ -112,7 +112,7 @@ public final class Launcher extends Application {
                 Platform.setImplicitExit(false);
                 Controllers.initialize(primaryStage);
 
-                UpdateChecker.init();
+//                UpdateChecker.init();
 
                 primaryStage.show();
             });

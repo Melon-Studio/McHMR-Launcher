@@ -17,6 +17,9 @@
  */
 package org.jackhuang.hmcl.ui.main;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import javafx.animation.KeyFrame;
@@ -60,7 +63,10 @@ import org.jackhuang.hmcl.upgrade.UpdateHandler;
 import org.jackhuang.hmcl.util.javafx.BindingMapping;
 import org.jackhuang.hmcl.util.javafx.MappedObservableList;
 import org.jackhuang.hmcl.util.platform.JavaVersion;
+import top.dooper.top.auth.AuthManagementServer;
+import top.dooper.top.util.HttpApiClient;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -246,6 +252,7 @@ public final class MainPage extends StackPane implements DecoratorPage {
         });
         Bindings.bindContent(menu.getContent(), versionNodes);
     }
+
 
     private void showUpdate(boolean show) {
         doAnimation(show);

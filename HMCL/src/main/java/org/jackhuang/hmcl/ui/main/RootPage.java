@@ -17,6 +17,9 @@
  */
 package org.jackhuang.hmcl.ui.main;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.geometry.Pos;
 import org.jackhuang.hmcl.event.EventBus;
@@ -46,8 +49,16 @@ import org.jackhuang.hmcl.upgrade.UpdateChecker;
 import org.jackhuang.hmcl.util.TaskCancellationAction;
 import org.jackhuang.hmcl.util.io.CompressingUtils;
 import org.jackhuang.hmcl.util.versioning.VersionNumber;
+import top.dooper.top.auth.AuthManagementServer;
+import top.dooper.top.exception.ServerErrorException;
+import top.dooper.top.util.HttpApiClient;
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -57,6 +68,7 @@ import java.util.stream.Collectors;
 import static org.jackhuang.hmcl.ui.FXUtils.runInFX;
 import static org.jackhuang.hmcl.ui.versions.VersionPage.wrap;
 import static org.jackhuang.hmcl.util.i18n.I18n.i18n;
+import static top.dooper.top.auth.CheckServerApi.checkServerAPI;
 
 public class RootPage extends DecoratorAnimatedPage implements DecoratorPage {
     private MainPage mainPage = null;
@@ -71,28 +83,6 @@ public class RootPage extends DecoratorAnimatedPage implements DecoratorPage {
 
         getStyleClass().remove("gray-background");
         getLeft().getStyleClass().add("gray-background");
-
-//        String programDirectory = System.getProperty("user.dir");
-//
-//        String hmclFolderPath = programDirectory + File.separator + "HMCL";
-//
-//        File hmclFolder = new File(hmclFolderPath);
-//        if (!hmclFolder.exists()) {
-//            if (hmclFolder.mkdir()) {
-//                System.out.println("HMCL folder created.");
-//            } else {
-//                System.err.println("Failed to create HMCL folder.");
-//                return;
-//            }
-//        }
-//
-//        String hotConfigFilePath = hmclFolderPath + File.separator + "HotConfig.json";
-//
-//        File hotConfigFile = new File(hotConfigFilePath);
-//        if (!hotConfigFile.exists()) {
-//            // TODO: 在此处添加你的逻辑，用于处理HotConfig.json文件不存在的情况
-//            Controllers.dialog(new RootDetailsInputPane());
-//        }
     }
 
     @Override
@@ -199,7 +189,12 @@ public class RootPage extends DecoratorAnimatedPage implements DecoratorPage {
             testFunctionItem.setLeftGraphic(wrap(SVG::bug));
             testFunctionItem.setActionButtonVisible(false);
             testFunctionItem.setTitle("功能测试");
-            testFunctionItem.setOnAction(e -> Controllers.dialog(new RootDetailsInputPane()));
+            testFunctionItem.setOnAction(e -> {
+//                Controllers.dialog(new RootDetailsInputPane());
+
+
+
+            });
 
             // the left sidebar
             AdvancedListBox sideBar = new AdvancedListBox()
@@ -217,6 +212,10 @@ public class RootPage extends DecoratorAnimatedPage implements DecoratorPage {
             // the root page, with the sidebar in left, navigator in center.
             setLeft(sideBar);
             setCenter(getSkinnable().getMainPage());
+
+            if (!checkServerAPI()) {
+                Controllers.dialog(new RootDetailsInputPane());
+            }
         }
 
     }

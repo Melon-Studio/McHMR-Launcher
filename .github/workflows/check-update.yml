@@ -35,20 +35,19 @@ jobs:
       - name: Download artifacts
         if: ${{ env.continue == 'true' }}
         run: |
-          wget "$DOWNLOAD_BASE_URL/HMCL-$HMCL_VERSION.exe"
-          wget "$DOWNLOAD_BASE_URL/HMCL-$HMCL_VERSION.exe.sha1"
-          wget "$DOWNLOAD_BASE_URL/HMCL-$HMCL_VERSION.jar"
-          wget "$DOWNLOAD_BASE_URL/HMCL-$HMCL_VERSION.jar.sha1"
-          wget "$DOWNLOAD_BASE_URL/HMCL-$HMCL_VERSION.sh"
-          wget "$DOWNLOAD_BASE_URL/HMCL-$HMCL_VERSION.sh.sha1"
+          wget "$DOWNLOAD_BASE_URL/HotHMCL-$HMCL_VERSION.exe"
+          wget "$DOWNLOAD_BASE_URL/HotHMCL-$HMCL_VERSION.exe.sha1"
+          wget "$DOWNLOAD_BASE_URL/HotHMCL-$HMCL_VERSION.jar"
+          wget "$DOWNLOAD_BASE_URL/HotHMCL-$HMCL_VERSION.jar.sha1"
+          wget "$DOWNLOAD_BASE_URL/HotHMCL-$HMCL_VERSION.sh"
+          wget "$DOWNLOAD_BASE_URL/HotHMCL-$HMCL_VERSION.sh.sha1"
         env:
           DOWNLOAD_BASE_URL: https://ci.huangyuhui.net/job/HMCL/lastSuccessfulBuild/artifact/HMCL/build/libs
       - name: Generate release note
         if: ${{ env.continue == 'true' }}
         run: |
-          echo "HMCL v$HMCL_VERSION" >> RELEASE_NOTE
+          echo "HotHMCL v$HMCL_VERSION" >> RELEASE_NOTE
           echo "" >> RELEASE_NOTE
-          echo "The full changelogs can be found on the website: https://docs.hmcl.net/changelog/dev.html" >> RELEASE_NOTE
           echo "Notice: changelogs are written in Chinese." >> RELEASE_NOTE
       - name: Create release
         if: ${{ env.continue == 'true' }}
@@ -56,12 +55,12 @@ jobs:
         with:
           body_path: RELEASE_NOTE
           files: |
-            HMCL-${{ env.HMCL_VERSION }}.exe
-            HMCL-${{ env.HMCL_VERSION }}.exe.sha1
-            HMCL-${{ env.HMCL_VERSION }}.jar
-            HMCL-${{ env.HMCL_VERSION }}.jar.sha1
-            HMCL-${{ env.HMCL_VERSION }}.sh
-            HMCL-${{ env.HMCL_VERSION }}.sh.sha1
+            HotHMCL-${{ env.HMCL_VERSION }}.exe
+            HotHMCL-${{ env.HMCL_VERSION }}.exe.sha1
+            HotHMCL-${{ env.HMCL_VERSION }}.jar
+            HotHMCL-${{ env.HMCL_VERSION }}.jar.sha1
+            HotHMCL-${{ env.HMCL_VERSION }}.sh
+            HotHMCL-${{ env.HMCL_VERSION }}.sh.sha1
           target_commitish: ${{ env.HMCL_COMMIT_SHA }}
           name: ${{ env.HMCL_TAG_NAME }}
           tag_name: ${{ env.HMCL_TAG_NAME }}
